@@ -6,8 +6,8 @@ CONFIG -= app_bundle
 DEFINES += QT_DEPRECATED_WARNINGS
 
 # Specify path to RTI installation
-RTIDDS_PREFIX = C:\\rti_dds\\rti_connext_dds-5.3.1
-RTIDDS_VERSION = i86Win32VS2017
+RTIDDS_PREFIX = $$(NDDSHOME)
+RTIDDS_VERSION = x64Linux3gcc5.4.0
 
 RTIDDS_IDL = ../common/sensor.idl
 
