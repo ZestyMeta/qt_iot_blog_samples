@@ -1,7 +1,8 @@
 #ifndef SENSORINFORMATIONDDS_H
 #define SENSORINFORMATIONDDS_H
 
-#include "sensor.h"
+#include "sensor.hpp"
+#include <dds/pub/DataWriter.hpp>
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
@@ -57,9 +58,11 @@ public slots:
     void setIdentifier(const QString &id);
 
 private:
-    sensor_information *m_info;
-    sensor_informationDataWriter *m_sensorWriter;
-    DDS_InstanceHandle_t m_handle;
+    dds::domain::DomainParticipant m_participant;
+    dds::pub::Publisher m_publisher;
+    dds::topic::Topic<sensor_information> m_topic;
+    dds::pub::DataWriter<sensor_information> m_writer;
+    sensor_information m_info;
     QString m_id;
 };
 
